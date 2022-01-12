@@ -1,0 +1,531 @@
+/*Helpful Links for WP Dev:
+Design Resources: https://blog.suhailkakar.com/best-design-resources-for-developers#html--css-templates
+Doodle Icons: https://icons8.com/icon/set/popular/doodle
+
+clear github help: https://towardsdatascience.com/building-a-beautiful-static-webpage-using-github-f0f92c6e1f02
+
+https://html5up.net/strongly-typed
+
+yellow color #EBE5C3
+
+*/
+
+/* normalization */
+  main {
+    display: block;
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+  }
+  
+  hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+  }
+  
+  pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+  }
+  
+  a {
+    background-color: transparent;
+  }
+  
+  abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted;
+  }
+  
+  b,
+  strong {
+    font-weight: bolder;
+  }
+  
+  code,
+  kbd,
+  samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+  }
+  
+  small {
+    font-size: 80%;
+  }
+
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  
+  sub {
+    bottom: -0.25em;
+  }
+  
+  sup {
+    top: -0.5em;
+  }
+
+  img {
+    border-style: none;
+  }
+  
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+  }
+    
+  button,
+  input { 
+    overflow: visible;
+  }
+  
+  button,
+  select { 
+    text-transform: none;
+  }
+  
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: button;
+  }
+    
+  button::-moz-focus-inner,
+  [type="button"]::-moz-focus-inner,
+  [type="reset"]::-moz-focus-inner,
+  [type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+  
+  button:-moz-focusring,
+  [type="button"]:-moz-focusring,
+  [type="reset"]:-moz-focusring,
+  [type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
+  
+  fieldset {
+    padding: 0.35em 0.75em 0.625em;
+  }
+  
+  legend {
+    box-sizing: border-box; 
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal;
+  }
+  
+  progress {
+    vertical-align: baseline;
+  }
+  
+  textarea {
+    overflow: visible;
+  }
+  
+  [type="checkbox"],
+  [type="radio"] {
+    box-sizing: border-box; 
+    padding: 0;
+  }
+  
+  [type="number"]::-webkit-inner-spin-button,
+  [type="number"]::-webkit-outer-spin-button {
+    height: auto;
+  }
+    
+  [type="search"] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+  }
+  
+  [type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  
+  ::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit; 
+  }
+  
+  details {
+    display: block;
+  }
+  
+  summary {
+    display: list-item;
+  } 
+  template {
+    display: none;
+  }
+  
+  [hidden] {
+    display: none;
+  }
+
+/* normalization ends */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@font-face {
+    font-family: 'fulboargenta';
+    src: url('fulbo-argenta-webfont.eot');
+    src: url('fulbo-argenta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fulbo-argenta-webfont.woff2') format('woff2'),
+         url('fulbo-argenta-webfont.woff') format('woff'),
+         url('fulbo-argenta-webfont.ttf') format('truetype'),
+         url('fulbo-argenta-webfont.svg#fulboargenta') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*border to background effect: https://css-tricks.com/having-fun-with-link-hover-effects/ */
+
+:root {
+    --mainColor: hsl(284, 20%, 78%);
+  }
+
+.purple a {
+    background:
+       linear-gradient(
+         to bottom,
+         var(--mainColor) 0%,
+         var(--mainColor) 100%
+       );
+    background-position: 0 100%;
+    background-repeat: repeat-x;
+    background-size: 4px 4px;
+    color: #000;
+    text-decoration: none;
+    transition: background-size .4s;
+  }
+  
+.purple a:hover {
+    background-size: 4px 50px;
+    text-decoration: overline dotted black;
+    font-weight:lighter;
+  }
+
+/* border to background ends */
+
+/*general containers*/
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    font-size: calc(60% + 0.8vmin);
+    flex-basis:auto
+  }
+
+body{
+    margin: 0;
+    background-color: #e7e7e7;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: black;
+    max-width: 100%;
+}
+
+.bigbox{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  margin-left:auto;
+  margin-right:auto;
+  max-width: 960px;
+}
+
+h3{
+  font-family: 'fulboargenta';
+}
+/*general containers over*/
+
+/* header */
+.namebox {
+    display: flex;
+    min-width: 320px;
+    word-wrap: normal;
+    flex-wrap: wrap;
+    justify-content: center;
+      }
+      
+.name{
+    font-family: 'fulboargenta';
+    font-size: 2.75em;
+    text-align: center;
+      }
+
+.name a{
+    text-decoration: none;
+    color: black;
+}
+
+.name a:hover{
+    text-decoration: underline dotted;
+}
+
+.nav{
+    word-spacing: 1em;
+    list-style:none;
+    margin:0;
+    padding:0;
+    width: 100%;
+    line-height: 1;
+    overflow: visible;
+}
+.nav ul{
+    text-align: center;
+    padding: 0;
+}
+.nav li{
+    display:inline-block;
+    padding: 1v;
+}
+
+.navlinks a{
+    text-decoration: none;
+}
+
+.navlinks a:link {
+    color: black;
+  }
+  
+  
+.navlinks a:hover {
+    text-decoration: overline dotted black;
+    font-weight: lighter;
+  }
+  
+
+.navlinks a:active {
+    color: rgb(128, 128, 128);
+  }
+
+.clicked{
+    background: #c2cff3;
+    font-weight: lighter; 
+    text-decoration: overline dotted black; 
+    background-position:top;
+    background-size: 4px 50px;
+}
+
+/* header ends */
+
+/*body classes begin*/
+
+.introbox {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: justify;
+    word-wrap:normal;
+    width: 70%;
+    max-width: 410px;
+    overflow: visible;
+}
+
+.photobooth{
+    flex-flow: column;
+    justify-content: center;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
+    max-width: 225px;
+    max-height: 225px;
+    filter: drop-shadow(2px 0 0 black) drop-shadow(0 2px 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 -2px 0  black);
+}
+
+.jobbox{
+  flex: 25%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  max-width: 25%;
+  gap: 5px;
+}
+
+.job{
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: normal;
+  vertical-align: middle;
+  margin:-5px;
+  justify-content: center;
+  padding: 26px;
+}
+
+.job>*{
+  margin: 5px;
+  border-radius: 1em;
+  width: 20em;
+}
+
+.jobtype{
+  display: flex;
+  font-family: fulboargenta;
+  text-align: center;
+  align-content: center;
+  border: 3px dashed rgb(230, 250, 246);
+  border-collapse: collapse;
+  border-radius: 0%;
+  width: fit-content;
+  height: min-content;
+  padding: 2px;
+}
+
+.music{
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 60%;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.musicbox{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 1em;
+  align-items: center;
+}
+
+.musictext{
+  font-family: 'Open Sans', sans-serif;
+  border-right: 3px solid black;
+  padding: 20px;
+  min-width: 200px;
+}
+
+/* form time <3 <3 <3 */
+
+.formbox{
+  padding-left: 1rem;
+  padding-top: 1rem;
+  margin: 0 auto;
+  display:flex;
+  justify-content: center;
+  width: 400;
+  word-wrap: normal;
+}
+
+form{
+  justify-content: center;
+  width: 80%;
+}
+
+button, label[type="text"], label[type="color"], label[type="textarea"], label[type="email"], input[type="text"], input[type="textarea"], input[type="email"], select, progress, meter {
+  font-size: 100%;
+  margin: 0;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+input[type="text"], input[type="textarea"], input[type="email"] {
+  border-radius: 5px; border: 0; width: 100%; margin: 0 auto;
+}
+
+input[type="text"], input[type="textarea"], input[type="email"] :active{
+  border: none;
+}
+
+button {
+  border-radius: 5px;
+  border: 0;
+  background-color: #c2cff3;
+  width: 100%;
+  margin: 0 auto;
+}
+
+textarea{
+  width: 100%;
+  resize:vertical;
+  word-wrap: normal;
+  border-radius: 5px;
+  border: 0;
+  margin: 0 auto;
+  font-size: medium;
+}
+
+input[type="color"] {
+  border-radius: 50%;
+  margin: auto;
+-webkit-appearance: none;
+  border:none;
+width: 36px;
+height: 36px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+border: none;
+  border-radius: 50%;
+}
+
+.colorworks{
+  width: 45%;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0%;
+  margin: 0%;
+
+}
+
+label[type="color"] {
+  margin: auto 0;
+}
+/* ok form time all done */
+
+/*body classes end*/
+
+/* footer starts */
+
+.footer {
+    display: flex;
+    padding-top: 3em;
+    list-style: none;
+    min-width: 375px;
+    margin: auto;
+    width: 100%;
+    line-height: 24px;
+    overflow: hidden;
+    text-align: center;
+    max-width: 600px;
+    }
+
+.footerleft {
+    vertical-align: middle;
+    font-size: small;
+    margin: auto;
+    float: left;
+}
+
+.footerright{
+    vertical-align: middle;
+    margin: auto;
+    float: right;
+}
+/* footer ends */
