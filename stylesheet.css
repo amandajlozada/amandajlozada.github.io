@@ -1,16 +1,5 @@
-/*Helpful Links for WP Dev:
-Design Resources: https://blog.suhailkakar.com/best-design-resources-for-developers#html--css-templates
-Doodle Icons: https://icons8.com/icon/set/popular/doodle
+/* normalization starts */
 
-clear github help: https://towardsdatascience.com/building-a-beautiful-static-webpage-using-github-f0f92c6e1f02
-
-https://html5up.net/strongly-typed
-
-yellow color #EBE5C3
-
-*/
-
-/* normalization */
   main {
     display: block;
     max-width: 40rem;
@@ -185,12 +174,13 @@ yellow color #EBE5C3
 
 /* normalization ends */
 
+/* font */
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @font-face {
     font-family: 'fulboargenta';
     src: url('fulbo-argenta-webfont.eot');
     src: url('fulbo-argenta-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fulbo-argenta-webfont.woff2') format('woff2'),
          url('fulbo-argenta-webfont.woff') format('woff'),
          url('fulbo-argenta-webfont.ttf') format('truetype'),
          url('fulbo-argenta-webfont.svg#fulboargenta') format('svg');
@@ -198,7 +188,9 @@ yellow color #EBE5C3
     font-style: normal;
 }
 
-/*border to background effect: https://css-tricks.com/having-fun-with-link-hover-effects/ */
+/* thanks font */
+
+/* border to background effect, credit to: https://css-tricks.com/having-fun-with-link-hover-effects/ */
 
 :root {
     --mainColor: hsl(284, 20%, 78%);
@@ -227,7 +219,7 @@ yellow color #EBE5C3
 
 /* border to background ends */
 
-/*general containers*/
+/* global elements */
 
 html {
     line-height: 1.15;
@@ -255,10 +247,14 @@ body{
   max-width: 960px;
 }
 
-h3{
+h2, h3{
   font-family: 'fulboargenta';
 }
-/*general containers over*/
+
+details > summary {
+  cursor:auto
+}
+/* global elements over */
 
 /* header */
 .namebox {
@@ -348,8 +344,8 @@ h3{
     justify-content: center;
     padding-top: 7vh;
     padding-bottom: 7vh;
-    max-width: 225px;
-    max-height: 225px;
+    max-width: 14.0625em;
+    max-height: 14.0625em;
     filter: drop-shadow(2px 0 0 black) drop-shadow(0 2px 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 -2px 0  black);
 }
 
@@ -391,6 +387,71 @@ h3{
   padding: 2px;
 }
 
+a, p .job{
+  font-weight: bold;
+  color: #000;
+}
+
+
+.jobbox{
+  flex: 25%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  max-width: 25%;
+  gap: 5px;
+}
+
+.service{
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: normal;
+  margin:-5px;
+  justify-content: center;
+  padding: 26px;
+}
+
+.service>*{
+  margin: 5px;
+  border-radius: 1em;
+  width: 20em;
+}
+
+.servicetype{
+  display: flex;
+  font-family: fulboargenta;
+  text-align: center;
+  align-content: center;
+  border: 3px dashed rgb(230, 250, 246);
+  border-collapse: collapse;
+  border-radius: 0%;
+  width: fit-content;
+  height: min-content;
+  padding: 2px;
+}
+
+a, p .service{
+  font-weight: bold;
+  color: #000;
+  text-align: left;
+  padding: 0em;
+  margin: 0em;
+  height: min-content;
+}
+
+.servicebox{
+  flex: 25%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  max-width: 25%;
+  gap: 5px;
+}
+
+li{
+  padding-bottom: .7em;
+}
+
 .music{
   display: grid;
   margin-left: auto;
@@ -410,6 +471,7 @@ h3{
 }
 
 .musictext{
+  text-align: right;
   font-family: 'Open Sans', sans-serif;
   border-right: 3px solid black;
   padding: 20px;
@@ -419,12 +481,9 @@ h3{
 /* form time <3 <3 <3 */
 
 .formbox{
-  padding-left: 1rem;
   padding-top: 1rem;
-  margin: 0 auto;
   display:flex;
   justify-content: center;
-  width: 400;
   word-wrap: normal;
 }
 
@@ -499,7 +558,7 @@ label[type="color"] {
 }
 /* ok form time all done */
 
-/*body classes end*/
+/* body classes end */
 
 /* footer starts */
 
@@ -529,3 +588,45 @@ label[type="color"] {
     float: right;
 }
 /* footer ends */
+
+/* media queries and responsivity adjustments */
+
+@media screen and (max-width: 1000px)
+{
+    body
+    {
+        width: 600px;
+        max-height: min-content;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+    }
+
+    .music{
+      display: grid;
+      margin-left: auto;
+      margin-right: auto;
+      grid-template-columns: 60%;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+      justify-content: center;
+      justify-items: center;
+    }
+    
+    .musicbox{
+      display: grid;
+      grid-template-columns: 1fr;
+      border-radius: 1em;
+      align-items: center;
+      justify-content: center;
+      justify-items: center;
+    }
+    
+    .musictext{
+      text-align: left;
+      font-family: 'Open Sans', sans-serif;
+      border:none;
+      padding: 20px;
+      min-width: 200px;
+    }
+}
