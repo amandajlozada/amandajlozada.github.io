@@ -342,10 +342,9 @@ details > summary {
 .photobooth{
     flex-flow: column;
     justify-content: center;
-    padding-top: 7vh;
-    padding-bottom: 7vh;
-    max-width: 14.0625em;
-    max-height: 14.0625em;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    max-width: 20em;
     filter: drop-shadow(2px 0 0 black) drop-shadow(0 2px 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 -2px 0  black);
 }
 
