@@ -344,7 +344,7 @@ details > summary {
     justify-content: center;
     padding-top: 2vh;
     padding-bottom: 2vh;
-    max-width: 20em;
+    max-width: 25em;
     filter: drop-shadow(2px 0 0 black) drop-shadow(0 2px 0 black) drop-shadow(-2px 0 0 black) drop-shadow(0 -2px 0  black);
 }
 
